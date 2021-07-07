@@ -26,7 +26,7 @@ const TodoForm:FC = () => {
     },[])
     return (
         <div className="flex items-center justify-center mt-8">
-            {console.log(state.tags)}
+            {/* {console.log(state.tags)} */}
             <div className="flex items-end">
                 <div>
                     <label htmlFor="todo" className="block text-2xl font-medium text-center text-gray-700">
@@ -46,9 +46,9 @@ const TodoForm:FC = () => {
                     </button>
                 <div className="ml-16">
                     <label htmlFor="location" className="block text-2xl font-medium text-center text-gray-700">Category</label>
-                    <select id="tag" name="tag" className="block w-full py-2 pl-3 pr-32 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                    <select id="tag" name="tag" className="block w-full py-2 pl-3 pr-32 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         value={values.tagId}
-                        onChange={handleTagChange}
+                        onChange={handleTagChange}>
                         {
                             state.tags.map((tag:Tag )=> (<option value={tag.id} key={tag.id}>{tag.name}</option>))
                         }

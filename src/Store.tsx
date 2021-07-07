@@ -71,6 +71,7 @@ const asyncActionHandler :any = {
                 try{
                     const response = await fetch('http://localhost:8000/todos?_expand=tag', fetchSettings)
                     const todos = await response.json()
+                    console.log('ajout todo test',todos)
                     dispatch({type:'SET_TODOS', payload:todos})
                 }catch(e){console.log(e)}
             }
