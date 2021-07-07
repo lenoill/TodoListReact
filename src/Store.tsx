@@ -3,7 +3,8 @@ import { useReducerAsync } from "use-reducer-async";
 
 const initialStoreContext = {
     state:{
-        todos: []
+        todos: [],
+        tags: []
     }
 }
 
@@ -12,6 +13,9 @@ const reducer = (state: State, action: Action) => {
         case 'SET_TODOS' : 
             console.log('SET_TODOS');
             return{...state,todos:action.payload}
+        case 'SET_TAGS' : 
+            console.log('SET_TAGS');
+            return{...state,tags:action.payload}
         default: 
             return state
     }
@@ -23,6 +27,18 @@ const baseHeaders = {
 }
 
 const asyncActionHandler :any = {
+    FETCHTAGS : ({dispatch} : {dispatch:({}:Action)=>{}}) => async (action:Action) => {
+        console.log('FETCHTAGS')
+        const fetchSettings = {
+            method:'GET',
+            headers:baseHeaders
+        }
+        try{
+            const response = await fetch('http://localhost:8000/tags', fetchSettings)
+            const tags = await response.json()
+            dispatch({type:'SET_TAGS', payload:tags})
+        }catch(e){console.log(e)}
+    },
     FETCHTODOS : ({dispatch} : {dispatch:({}:Action)=>{}}) => async (action:Action) => {
         console.log('FETCHTODOS')
         const fetchSettings = {
@@ -30,7 +46,7 @@ const asyncActionHandler :any = {
             headers:baseHeaders
         }
         try{
-            const response = await fetch('http://localhost:8000/todos', fetchSettings)
+            const response = await fetch('http://localhost:8000/todos?_expand=tag', fetchSettings)
             const todos = await response.json()
             dispatch({type:'SET_TODOS', payload:todos})
         }catch(e){console.log(e)}
@@ -53,7 +69,7 @@ const asyncActionHandler :any = {
                     headers:baseHeaders
                 }
                 try{
-                    const response = await fetch('http://localhost:8000/todos', fetchSettings)
+                    const response = await fetch('http://localhost:8000/todos?_expand=tag', fetchSettings)
                     const todos = await response.json()
                     dispatch({type:'SET_TODOS', payload:todos})
                 }catch(e){console.log(e)}
@@ -79,7 +95,7 @@ const asyncActionHandler :any = {
                     headers:baseHeaders
                 }
                 try{
-                    const response = await fetch('http://localhost:8000/todos', fetchSettings)
+                    const response = await fetch('http://localhost:8000/todos?_expand=tag', fetchSettings)
                     const todos = await response.json()
                     dispatch({type:'SET_TODOS', payload:todos})
                 }catch(e){console.log(e)}

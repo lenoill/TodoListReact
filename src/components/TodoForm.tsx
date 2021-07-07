@@ -1,22 +1,32 @@
-import React, { ChangeEvent, FC, MouseEvent, useContext, useState } from 'react'
+import React, { ChangeEvent, FC, MouseEvent, useContext, useEffect, useState } from 'react'
 import { storeContext } from '../Store'
 
 const TodoForm:FC = () => {
     const {state, dispatch} = useContext(storeContext)
-    const [values, setValues] = useState<{title:string}>({
-        title: ''
+    const [values, setValues] = useState<{title:string, tagId:number}>({
+        title: '',
+        tagId: 1
     })
     const handleTitleChange = (e:ChangeEvent<HTMLInputElement>) => {
         setValues(values => ({...values, title:e.target.value}))
+    }
+
+    const handleTagChange = (e:ChangeEvent<HTMLSelectElement>) => {
+        setValues(values => ({...values, tagId:parseInt(e.target.value)}))
     }
     const handleClick = (e:MouseEvent) => {
         console.log('create todo')
         console.log(values)
         dispatch({type:'ADDTODOS', payload:{values}})
-        setValues({title:''})
+        setValues({title:'', tagId:1})
     }
+    useEffect(()=> {
+        dispatch({type:'FETCHTAGS'})
+        return () => {}
+    },[])
     return (
         <div className="flex items-center justify-center mt-8">
+            {console.log(state.tags)}
             <div className="flex items-end">
                 <div>
                     <label htmlFor="todo" className="block text-2xl font-medium text-center text-gray-700">
@@ -37,8 +47,11 @@ const TodoForm:FC = () => {
                 <div className="ml-16">
                     <label htmlFor="location" className="block text-2xl font-medium text-center text-gray-700">Category</label>
                     <select id="tag" name="tag" className="block w-full py-2 pl-3 pr-32 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
-                        <option>Sport</option>
-                        <option>Study</option>
+                        value={values.tagId}
+                        onChange={handleTagChange}
+                        {
+                            state.tags.map((tag:Tag )=> (<option value={tag.id} key={tag.id}>{tag.name}</option>))
+                        }
                     </select>
                 </div>
             </div>

@@ -1,9 +1,15 @@
 interface State {
-    todos: Todo[]
+    todos: Todo[],
+    tags: Tag[]
 }
 interface Todo{
     id: any,
-    title: string
+    title: string,
+    tag:{name:string}
+}
+interface Tag{
+    id: any,
+    name:string
 }
 
 type Action = 
@@ -11,6 +17,8 @@ type Action =
     | FetchTodos
     | AddTodo
     | DeleteTodo
+    | Fetchtags
+    | SetTags
 
 interface AddTodo {
     type: 'ADDTODOS',
@@ -25,8 +33,16 @@ interface SetTodos {
     type: 'SET_TODOS',
     payload: Todo[]
 }
+interface SetTags {
+    type: 'SET_TAGS',
+    payload: Tag[]
+}
 
 interface FetchTodos {
     type: 'FETCHTODOS',
+    payload:any
+}
+interface Fetchtags {
+    type: 'FETCHTAGS',
     payload:any
 }

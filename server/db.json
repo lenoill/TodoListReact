@@ -1,24 +1,54 @@
 {
+  "tags": [
+    {
+      "id": 1,
+      "name": "Pleasure"
+    },
+    {
+      "id": 2,
+      "name": "Work"
+    }
+  ],
   "todos": [
     {
       "title": "setup beers",
-      "id": 1
+      "id": 1,
+      "tagId": 1
     },
     {
       "title": "setup chips",
-      "id": 2
+      "id": 2,
+      "tagId": 1
     },
     {
       "title": "watch movies",
-      "id": 3
+      "id": 3,
+      "tagId": 2
     },
     {
       "title": "nickel chrome",
-      "id": 10
+      "id": 10,
+      "tagId": 2
     },
     {
       "title": "nice",
-      "id": 12
+      "id": 12,
+      "tagId": 1
+    },
+    {
+      "title": "faire le pob assassin coc",
+      "tagId": 1,
+      "id": 13
+    },
+    {
+      "title": "test",
+      "tagId": 1,
+      "id": 14
+    },
+    {
+      "title": "hum",
+      "tagId": 1,
+      "id": 15
     }
   ],
   "users": []

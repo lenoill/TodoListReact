@@ -4,11 +4,11 @@ import { storeContext } from '../Store';
 const TodoItem:FC<{todo:Todo}> = ({todo}) => {
     const {state, dispatch} = useContext(storeContext)
     const handleDelete = (e:MouseEvent) => {
-        console.log('delete component', todo.id)
         dispatch({type:'DELETETODO', payload:{id:todo.id}})
     }
     return(
      <li className="flex items-center justify-between p-4 hover: bg-gray-50">
+         {console.log(todo)}
          <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
                 <button onClick={handleDelete}>
@@ -16,7 +16,7 @@ const TodoItem:FC<{todo:Todo}> = ({todo}) => {
                 </button>
                 {todo.title}
                 <span className="px-3 py-1 ml-2 text-xs text-green-800 bg-green-300 rounded-lg">
-                    sport
+                    {todo.tag.name}
                 </span>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg"
