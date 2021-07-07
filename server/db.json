@@ -1,0 +1,25 @@
+{
+  "todos": [
+    {
+      "title": "setup beers",
+      "id": 1
+    },
+    {
+      "title": "setup chips",
+      "id": 2
+    },
+    {
+      "title": "watch movies",
+      "id": 3
+    },
+    {
+      "title": "nickel chrome",
+      "id": 10
+    },
+    {
+      "title": "nice",
+      "id": 12
+    }
+  ],
+  "users": []
+}
