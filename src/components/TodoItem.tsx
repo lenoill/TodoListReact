@@ -9,7 +9,6 @@ const TodoItem:FC<{todo:Todo}> = ({todo}) => {
     }
     return(
      <li className="flex items-center justify-between p-4 hover: bg-gray-50">
-         {console.log(todo)}
          <div className="flex items-center justify-between w-full">
             <div className="flex items-center">
                 <button onClick={handleDelete}>

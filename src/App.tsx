@@ -5,7 +5,9 @@ function App() {
 
 
   return (
+    
     <div className="">
+      {console.log(import.meta.env.VITE_API_URI)}
         <TodoList />
     </div>
   )

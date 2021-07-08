@@ -1,3 +1,4 @@
+require('dotenv').config()
 const jsonServer = require('json-server');
 const auth = require('json-server-auth');
 const server = jsonServer.create();
