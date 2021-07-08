@@ -4,7 +4,9 @@ type Context = {state:State, dispatch:Dispatch<Action>}
 
 interface State {
     todos: Todo[],
-    tags: Tag[]
+    tags: Tag[],
+    jwt: string,
+    error: string | null
 }
 interface Todo{
     id: any,
@@ -23,6 +25,10 @@ type Action =
     | DeleteTodo
     | Fetchtags
     | SetTags
+    | SetJwt
+    | Register
+    | Login
+    | SetError
 
 interface AddTodo {
     type: 'ADDTODOS',
@@ -41,6 +47,15 @@ interface SetTags {
     type: 'SET_TAGS',
     payload: Tag[]
 }
+interface SetError {
+    type: 'SET_ERROR',
+    payload: string
+}
+
+interface SetJwt {
+    type:'SET_JWT',
+    payload: string
+}
 
 interface FetchTodos {
     type: 'FETCHTODOS',
@@ -48,5 +63,13 @@ interface FetchTodos {
 }
 interface Fetchtags {
     type: 'FETCHTAGS',
+    payload:any
+}
+interface Register {
+    type:'REGISTER',
+    payload:any
+}
+interface Login {
+    type:'LOGIN',
     payload:any
 }

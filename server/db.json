@@ -31,5 +31,16 @@
       "id": 5
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "lionel@gmail.com",
+      "password": "$2a$10$Bw4KSUn.WLMXsa4AK5BZXu2rCjaZzKHdV9EGvDuFTaZbFJfgKAqYW",
+      "id": 1
+    },
+    {
+      "email": "test@test",
+      "password": "$2a$10$Vuz3QM.OUT89.cq4Avpbke2nwzkkVFckGSIzRQRAkGnpaG/UaBvE6",
+      "id": 2
+    }
+  ]
 }
