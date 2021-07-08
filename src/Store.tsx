@@ -1,11 +1,13 @@
 import React, { createContext, PropsWithChildren, useReducer } from "react";
 import { useReducerAsync } from "use-reducer-async";
+import { Context, Action, State } from "./types";
 
-const initialStoreContext = {
+const initialStoreContext:Context = {
     state:{
         todos: [],
         tags: []
-    }
+    },
+    dispatch:(_a:any)=>{}
 }
 
 const reducer = (state: State, action: Action) => {

@@ -1,3 +1,7 @@
+import { Dispatch } from "react"
+
+type Context = {state:State, dispatch:Dispatch<Action>}
+
 interface State {
     todos: Todo[],
     tags: Tag[]
