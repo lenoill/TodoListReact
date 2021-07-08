@@ -13,7 +13,6 @@ describe('test my todolist', () => {
     })
     it('create todo with a category and delete', () => {
         cy.visit('/');
-        cy.visit('/');
         cy.get('#todo').click();
         cy.get('#todo').type('Test with cat2');
         cy.get('#tag').select('2');
