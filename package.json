@@ -9,7 +9,7 @@
     "e2e:open": "cypress open",
     "e2e:run": "cypress run",
     "test": "start-server-and-test 'yarn dev' http://localhost:8000 'yarn e2e:open'",
-    "deploy:back": "heroku git:clone -a pechoton-vite-todo"
+    "deploy:back": "git subtree push --prefix server heroku master"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
